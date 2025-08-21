@@ -1,0 +1,94 @@
+graph TB
+    subgraph "🖥️ Frontend - React + TypeScript"
+        A[App.tsx<br/>Estado Global] --> B[🧭 Navigation<br/>Tab Switching]
+        A --> C[📄 Main Content<br/>View Rendering]
+        
+        B --> D[🏗️ Builder Tab<br/>Query Construction]
+        B --> E[💻 Editor Tab<br/>SQL Editing] 
+        B --> F[📊 Results Tab<br/>Data Display]
+        B --> G[📁 Management Tab<br/>Save/Load]
+        
+        C --> H[AdvancedQueryBuilder<br/>Drag & Drop Interface]
+        C --> I[SqlEditor<br/>Monaco Editor]
+        C --> J[QueryResults<br/>Table + Export]
+        C --> K[QueryManagement<br/>CRUD Operations]
+    end
+    
+    subgraph "⚙️ Backend - Node.js + Express"
+        L[Server.js<br/>API Gateway] --> M[🛣️ API Routes<br/>REST Endpoints]
+        M --> N[📋 /api/schema<br/>Database Structure]
+        M --> O[▶️ /api/execute<br/>Query Execution]
+        M --> P[🗂️ /api/tables<br/>Table Operations]
+    end
+    
+    subgraph "🗄️ Database Layer"
+        Q[(PostgreSQL<br/>Main Database)]
+        Q --> R[👥 users<br/>User Data]
+        Q --> S[🛍️ products<br/>Product Catalog]
+        Q --> T[📦 orders<br/>Order History]
+        Q --> U[🏷️ categories<br/>Product Categories]
+    end
+    
+    A -.->|HTTP Requests| L
+    L -.->|SQL Queries| Q
+    
+    subgraph "🧩 Component Architecture"
+        H --> H1[🔍 FieldSearch<br/>Search & Filter]
+        H --> H2[📋 FieldsPanel<br/>Available Fields]
+        H --> H3[🎯 QueryCanvas<br/>Drop Zones]
+        
+        H2 --> H2A[SelectableField<br/>Dimension]
+        H2 --> H2B[SelectableField<br/>Metric]
+        H2 --> H2C[SelectableField<br/>Filter]
+        
+        H3 --> H3A[DropZone SELECT<br/>Field Selection]
+        H3 --> H3B[DropZone FROM<br/>Table Selection]
+        H3 --> H3C[DropZone WHERE<br/>Conditions]
+        H3 --> H3D[DropZone GROUP BY<br/>Grouping]
+        
+        I --> I1[Monaco Editor<br/>Syntax Highlighting]
+        I --> I2[SQL Validation<br/>Error Checking]
+        I --> I3[Editor Controls<br/>Edit/Preview/Reset]
+        
+        J --> J1[Results Table<br/>Data Grid]
+        J --> J2[Export CSV<br/>Download Data]
+        J --> J3[Create Table<br/>Persist Results]
+        
+        K --> K1[Save Dialog<br/>Store Query]
+        K --> K2[Load Dialog<br/>Retrieve Query]
+        K --> K3[Query List<br/>Browse Saved]
+    end
+    
+    subgraph "📊 Data Flow"
+        DF1[User Interaction] --> DF2[State Update]
+        DF2 --> DF3[SQL Generation]
+        DF3 --> DF4[API Request]
+        DF4 --> DF5[Database Query]
+        DF5 --> DF6[Results Display]
+    end
+    
+    subgraph "🎨 Current Styling Issues"
+        CSS1[App.css<br/>1623 lines] --> CSS2[❌ Monolithic CSS]
+        CSS1 --> CSS3[❌ No Design System]
+        CSS1 --> CSS4[❌ Inconsistent Patterns]
+        CSS1 --> CSS5[❌ Poor Mobile Support]
+    end
+    
+    subgraph "🚀 Modernization Plan"
+        MOD1[🎯 Phase 1<br/>Setup Tailwind] --> MOD2[🎨 Phase 2<br/>Design Tokens]
+        MOD2 --> MOD3[📱 Phase 3<br/>Responsive Design]
+        MOD3 --> MOD4[♿ Phase 4<br/>Accessibility]
+    end
+    
+    %% Styling
+    style A fill:#e3f2fd,stroke:#1976d2,stroke-width:3px
+    style L fill:#f3e5f5,stroke:#7b1fa2,stroke-width:3px
+    style Q fill:#e8f5e8,stroke:#388e3c,stroke-width:3px
+    
+    style H fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style I fill:#e0f2f1,stroke:#00695c,stroke-width:2px
+    style J fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style K fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    
+    style CSS1 fill:#ffcdd2,stroke:#d32f2f,stroke-width:2px
+    style MOD1 fill:#c8e6c9,stroke:#388e3c,stroke-width:2px
